@@ -1,25 +1,17 @@
 extern crate crypto;
 extern crate rand;
-
 extern crate num_cpus;
 
 use rand::Rng;
 use crypto::sha2::Sha256;
 use crypto::digest::Digest;
 
-const SIZE_OF_HEAP: usize = 4096;
+const SIZE_OF_HEAP: usize = 8192;
 
 fn hash(val: &str) -> String{
     let mut hasher = Sha256::new();
     hasher.input_str(&val);
     hasher.result_str().to_string()
-}
-
-fn verify_hash(val: &str, hashed_val: &str) -> bool{
-    if hash(val) == hashed_val {
-        return true;
-    }
-    return false;
 }
 
 fn verify_vec_hash(vec: &[String], hashed_vec: &[String]) -> Result<i32, String> {
@@ -60,4 +52,3 @@ fn main() {
         Err(e) => panic!("ERROR: {}",e),
     }
 }
-
