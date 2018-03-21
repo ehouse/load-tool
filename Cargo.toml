@@ -1,0 +1,6 @@
+[package]
+name = "load-tool"
+version = "0.1.0"
+authors = ["Ethan House <ehouse@fastmail.com>"]
+
+[dependencies]
